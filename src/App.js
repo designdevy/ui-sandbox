@@ -24,7 +24,7 @@ function App() {
         <Select title="Select" items={items} />
       </div>
       <div className="container">
-        <p>Muliple Select</p>
+        <p>Muliple Select  (#TODO: Add Checkbox)</p>
         <Select title="Select" items={items} multiSelect />
       </div>
     </>
