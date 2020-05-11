@@ -81,7 +81,7 @@ export const SelectItem = styled.li`
 
   div {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     font-family: Mallory;
     font-size: 14px;
     font-weight: normal;

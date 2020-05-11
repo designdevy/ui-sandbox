@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { SelectWrapper, SelectItem } from "./Select.styled";
+// import Checkbox from "./Checkbox";
 
 function Select({ title, items, multiSelect = false }) {
   const [open, setOpen] = useState(false);
   const [selection, setSelection] = useState([]);
   const [currentTitle, setCurrentTitle] = useState(title);
+  // const [checked, setChecked] = useState(false);
   const toggle = () => setOpen(!open);
 
   function handleOnClick(item) {
@@ -31,6 +33,10 @@ function Select({ title, items, multiSelect = false }) {
     }
     return false;
   }
+
+  // function handleCheckboxChange() {
+  //   setChecked(!checked);
+  // }
 
   return (
     <SelectWrapper open={open}>
@@ -61,8 +67,16 @@ function Select({ title, items, multiSelect = false }) {
           {items.map(item => (
             <SelectItem selected={isItemInSelection(item)} key={item.id}>
               <div onClick={() => handleOnClick(item)}>
+                {multiSelect && (
+                  <span>
+                    <input
+                      type="checkbox"
+                      checked={isItemInSelection(item)}
+                      readOnly
+                    />
+                  </span>
+                )}
                 <span>{item.value}</span>
-                <span>{isItemInSelection(item) && "Selected"}</span>
               </div>
             </SelectItem>
           ))}
