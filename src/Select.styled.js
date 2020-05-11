@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-const SelectWrapper = styled.div`
+export const SelectWrapper = styled.div`
   display: flex;
   min-height: 38px;
   flex-wrap: wrap;
@@ -61,46 +61,50 @@ const SelectWrapper = styled.div`
     width: 100%;
     margin-top: 4px;
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
-
-    li {
-      list-style-type: none;
-
-      &:first-of-type {
-        > div {
-          border-top-left-radius: 4px;
-          border-top-right-radius: 4px;
-        }
-      }
-
-      &:last-of-type > div {
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-      }
-
-      div {
-        display: flex;
-        justify-content: space-between;
-        font-family: Mallory;
-        font-size: 14px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        color: #000000;
-        background-color: white;
-        padding: 12px;
-        width: 100%;
-        text-align: left;
-
-        &:hover,
-        &:focus {
-          cursor: pointer;
-          background-color: #f4f8fe;
-        }
-      }
-    }
   }
 `;
 
-export default SelectWrapper;
+export const SelectItem = styled.li`
+  list-style-type: none;
+
+  &:first-of-type {
+    > div {
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+  }
+
+  &:last-of-type > div {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    font-family: Mallory;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+    background-color: white;
+    padding: 12px;
+    width: 100%;
+    text-align: left;
+
+    /* ${props =>
+      props.selected &&
+      css`
+        background-color: #f4f8fe;
+      `} */
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      background-color: #f4f8fe;
+    }
+  }
+`;

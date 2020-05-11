@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SelectWrapper from "./Select.styled";
+import { SelectWrapper, SelectItem } from "./Select.styled";
 
 function Select({ title, items, multiSelect = false }) {
   const [open, setOpen] = useState(false);
@@ -59,12 +59,12 @@ function Select({ title, items, multiSelect = false }) {
       {open && (
         <ul className="dd-list">
           {items.map(item => (
-            <li className="dd-list-item" key={item.id}>
+            <SelectItem selected={isItemInSelection(item)} key={item.id}>
               <div onClick={() => handleOnClick(item)}>
                 <span>{item.value}</span>
                 <span>{isItemInSelection(item) && "Selected"}</span>
               </div>
-            </li>
+            </SelectItem>
           ))}
         </ul>
       )}

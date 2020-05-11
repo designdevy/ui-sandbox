@@ -18,9 +18,16 @@ const items = [
 
 function App() {
   return (
-    <div className="container">
-      <Select title="Select" items={items} />
-    </div>
+    <>
+      <div className="container">
+        <p>Single Select</p>
+        <Select title="Select" items={items} />
+      </div>
+      <div className="container">
+        <p>Muliple Select</p>
+        <Select title="Select" items={items} multiSelect />
+      </div>
+    </>
   );
 }
 
