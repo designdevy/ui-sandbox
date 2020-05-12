@@ -65,7 +65,11 @@ function Select({ title, items, multiSelect = false }) {
       {open && (
         <ul className="dd-list">
           {items.map(item => (
-            <SelectItem selected={isItemInSelection(item)} key={item.id}>
+            <SelectItem
+              selected={isItemInSelection(item)}
+              multiSelect={multiSelect}
+              key={item.id}
+            >
               <div className="item-content" onClick={() => handleOnClick(item)}>
                 {multiSelect && (
                   <span>

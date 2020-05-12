@@ -13,6 +13,18 @@ const items = [
   {
     id: 3,
     value: "Item3"
+  },
+  {
+    id: 4,
+    value: "Item4"
+  },
+  {
+    id: 5,
+    value: "Item5"
+  },
+  {
+    id: 6,
+    value: "Item6"
   }
 ];
 

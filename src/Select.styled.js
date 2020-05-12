@@ -95,11 +95,12 @@ export const SelectItem = styled.li`
     width: 100%;
     text-align: left;
 
-    /* ${props =>
+    ${props =>
+      !props.multiSelect &&
       props.selected &&
       css`
         background-color: #f4f8fe;
-      `} */
+      `}
 
     &:hover,
     &:focus {
