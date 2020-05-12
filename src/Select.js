@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SelectWrapper, SelectItem } from "./Select.styled";
-// import Checkbox from "./Checkbox";
+import Checkbox from "./Checkbox";
 
 function Select({ title, items, multiSelect = false }) {
   const [open, setOpen] = useState(false);
@@ -66,14 +66,10 @@ function Select({ title, items, multiSelect = false }) {
         <ul className="dd-list">
           {items.map(item => (
             <SelectItem selected={isItemInSelection(item)} key={item.id}>
-              <div onClick={() => handleOnClick(item)}>
+              <div className="item-content" onClick={() => handleOnClick(item)}>
                 {multiSelect && (
                   <span>
-                    <input
-                      type="checkbox"
-                      checked={isItemInSelection(item)}
-                      readOnly
-                    />
+                    <Checkbox checked={isItemInSelection(item)} readOnly />
                   </span>
                 )}
                 <span>{item.value}</span>

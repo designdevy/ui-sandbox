@@ -79,7 +79,7 @@ export const SelectItem = styled.li`
     border-bottom-right-radius: 4px;
   }
 
-  div {
+  & .item-content {
     display: flex;
     justify-content: flex-start;
     font-family: Mallory;
@@ -105,6 +105,11 @@ export const SelectItem = styled.li`
     &:focus {
       cursor: pointer;
       background-color: #f4f8fe;
+    }
+
+    &:hover .checkbox,
+    &:focus .checkbox {
+      border-color: #a9c9fc;
     }
   }
 `;

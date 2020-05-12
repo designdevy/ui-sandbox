@@ -4,12 +4,13 @@ import styled from "styled-components";
 const CheckboxContainer = styled.div`
   display: inline-block;
   vertical-align: middle;
+  margin-right: 8px;
 `;
 
 const Icon = styled.svg`
-  fill: none;
-  stroke: white;
-  stroke-width: 2px;
+  fill: #5392f9;
+  width: 12px;
+  height: 12px;
 `;
 // Hide checkbox visually but remain accessible to screen readers.
 // Source: https://polished.js.org/docs/#hidevisually
@@ -27,16 +28,15 @@ const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
 `;
 
 const StyledCheckbox = styled.div`
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 16px;
   height: 16px;
-  background: ${props => (props.checked ? "salmon" : "papayawhip")};
-  border-radius: 3px;
-  transition: all 150ms;
-
-  ${HiddenCheckbox}:focus + & {
-    box-shadow: 0 0 0 3px pink;
-  }
+  background-color: #fff;
+  border: 1px solid;
+  border-color: #ced0d4;
+  border-radius: 2px;
 
   ${Icon} {
     visibility: ${props => (props.checked ? "visible" : "hidden")};
@@ -46,9 +46,9 @@ const StyledCheckbox = styled.div`
 const Checkbox = ({ className, checked, ...props }) => (
   <CheckboxContainer className={className}>
     <HiddenCheckbox checked={checked} {...props} />
-    <StyledCheckbox checked={checked}>
-      <Icon viewBox="0 0 24 24">
-        <polyline points="20 6 9 17 4 12" />
+    <StyledCheckbox className="checkbox" checked={checked}>
+      <Icon className="icon" viewBox="0 0 12 12">
+        <path d="M8.971 1.603l-4.38 4.38-1.562-1.561c-.39-.39-1.024-.39-1.414 0L.5 5.537C.11 5.927.11 6.56.5 6.95l3.384 3.383c.39.39 1.023.39 1.414 0L11.5 4.132c.39-.39.39-1.024 0-1.414l-1.115-1.115c-.39-.39-1.023-.39-1.414 0z" />
       </Icon>
     </StyledCheckbox>
   </CheckboxContainer>
