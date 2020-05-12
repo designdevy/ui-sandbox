@@ -40,7 +40,11 @@ function App() {
         <Select title="Select" items={items} multiSelect />
       </div>
       <div className="container">
-        <p>Muliple Select</p>
+        <p>Single Select with Search</p>
+        <Select title="Select" items={items} search />
+      </div>
+      <div className="container">
+        <p>Muliple Select with Search</p>
         <Select title="Select" items={items} multiSelect search />
       </div>
     </>
