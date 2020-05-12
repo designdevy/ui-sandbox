@@ -39,6 +39,10 @@ function App() {
         <p>Muliple Select</p>
         <Select title="Select" items={items} multiSelect />
       </div>
+      <div className="container">
+        <p>Muliple Select</p>
+        <Select title="Select" items={items} multiSelect search />
+      </div>
     </>
   );
 }

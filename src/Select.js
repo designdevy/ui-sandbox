@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { SelectWrapper, SelectItem } from "./Select.styled";
 import Checkbox from "./Checkbox";
+import Search from "./Search";
 
-function Select({ title, items, multiSelect = false }) {
+function Select({ title, items, multiSelect = false, search = false }) {
   const [open, setOpen] = useState(false);
   const [selection, setSelection] = useState([]);
   const [currentTitle, setCurrentTitle] = useState(title);
-  // const [checked, setChecked] = useState(false);
   const toggle = () => setOpen(!open);
 
   function handleOnClick(item) {
@@ -17,6 +17,14 @@ function Select({ title, items, multiSelect = false }) {
         setOpen(false);
       } else if (multiSelect) {
         setSelection([...selection, item]);
+        setCurrentTitle(() => {
+          let items = [item.value];
+          selection.forEach(item => {
+            items.unshift(item.value);
+          });
+          console.log(items.join(", "));
+          return items.join(", ");
+        });
       }
     } else {
       let selectionAfterRemoval = selection;
@@ -24,6 +32,19 @@ function Select({ title, items, multiSelect = false }) {
         current => current.id !== item.id
       );
       setSelection([...selectionAfterRemoval]);
+      if (multiSelect) {
+        setCurrentTitle(() => {
+          let items = [];
+          selectionAfterRemoval.forEach(item => {
+            items.unshift(item.value);
+          });
+          console.log(items.join(", "));
+          if (items.length !== 0) {
+            return items.join(", ");
+          }
+          return "Select";
+        });
+      }
     }
   }
 
@@ -33,10 +54,6 @@ function Select({ title, items, multiSelect = false }) {
     }
     return false;
   }
-
-  // function handleCheckboxChange() {
-  //   setChecked(!checked);
-  // }
 
   return (
     <SelectWrapper open={open}>
@@ -64,6 +81,7 @@ function Select({ title, items, multiSelect = false }) {
       </div>
       {open && (
         <ul className="dd-list">
+          {search && <Search />}
           {items.map(item => (
             <SelectItem
               selected={isItemInSelection(item)}

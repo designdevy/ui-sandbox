@@ -55,11 +55,11 @@ export const SelectWrapper = styled.div`
   }
 
   .dd-list {
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
     padding: 0;
     margin: 0;
     width: 100%;
     margin-top: 4px;
+    border-radius: 4px;
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
   }
 `;
