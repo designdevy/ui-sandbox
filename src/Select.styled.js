@@ -40,6 +40,10 @@ export const SelectWrapper = styled.div`
       letter-spacing: normal;
       color: #000000;
       margin: 0;
+      width: 50%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     &__action {
