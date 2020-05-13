@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SelectWrapper, SelectItem } from "./Select.styled";
 import Checkbox from "./Checkbox";
 import Search from "./Search";
@@ -7,6 +7,8 @@ function Select({ title, items, multiSelect = false, search = false }) {
   const [open, setOpen] = useState(false);
   const [selection, setSelection] = useState([]);
   const [currentTitle, setCurrentTitle] = useState(title);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = React.useState([]);
   const toggle = () => setOpen(!open);
 
   function handleOnClick(item) {
@@ -55,6 +57,17 @@ function Select({ title, items, multiSelect = false, search = false }) {
     return false;
   }
 
+  function handleChange(event) {
+    setSearchTerm(event.target.value);
+  }
+
+  useEffect(() => {
+    const results = items.filter(({ value }) =>
+      value.toLowerCase().includes(searchTerm)
+    );
+    setSearchResults(results);
+  }, [items, searchTerm]);
+
   return (
     <SelectWrapper open={open}>
       <div
@@ -81,8 +94,10 @@ function Select({ title, items, multiSelect = false, search = false }) {
       </div>
       {open && (
         <ul className="dd-list">
-          {search && <Search />}
-          {items.map(item => (
+          {search && (
+            <Search searchTerm={searchTerm} handleChange={handleChange} />
+          )}
+          {searchResults.map(item => (
             <SelectItem
               selected={isItemInSelection(item)}
               multiSelect={multiSelect}

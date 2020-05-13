@@ -52,19 +52,21 @@ const SearchIcon = styled.svg`
   left: 12px;
 `;
 
-const Search = () => (
-  <SearchContainer>
-    <SearchContent>
-      <SearchIcon viewBox="0 0 16 16">
-        <path
-          fill="#2A2A2E"
-          fill-rule="evenodd"
-          d="M11.695 10.736l2.78 2.764c.262.26.263.682.003.943-.26.261-.681.263-.943.003l-2.78-2.765C9.725 12.506 8.42 13 7 13c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6c0 1.412-.488 2.71-1.305 3.736zM7 11.666c2.577 0 4.667-2.089 4.667-4.666 0-2.577-2.09-4.667-4.667-4.667S2.333 4.423 2.333 7 4.423 11.667 7 11.667z"
-        />
-      </SearchIcon>
-      <SearchInput />
-    </SearchContent>
-  </SearchContainer>
-);
+const Search = ({ searchTerm, handleChange }) => {
+  return (
+    <SearchContainer>
+      <SearchContent>
+        <SearchIcon viewBox="0 0 16 16">
+          <path
+            fill="#2A2A2E"
+            fillRule="evenodd"
+            d="M11.695 10.736l2.78 2.764c.262.26.263.682.003.943-.26.261-.681.263-.943.003l-2.78-2.765C9.725 12.506 8.42 13 7 13c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6c0 1.412-.488 2.71-1.305 3.736zM7 11.666c2.577 0 4.667-2.089 4.667-4.666 0-2.577-2.09-4.667-4.667-4.667S2.333 4.423 2.333 7 4.423 11.667 7 11.667z"
+          />
+        </SearchIcon>
+        <SearchInput value={searchTerm} onChange={handleChange} />
+      </SearchContent>
+    </SearchContainer>
+  );
+};
 
 export default Search;
